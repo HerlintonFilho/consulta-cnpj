@@ -1,0 +1,30 @@
+<%- include ('partials/header.ejs') %>
+<%- include ('partials/navbar.ejs') %>
+<br>
+
+<div class="container">
+    <div class="card">
+        <div class="card-header">
+            <h2>Dados retornado</h2>
+        </div>
+        <div class="card-body">
+            <h3><strong>NOME: </strong> <%= nome %></h3>
+            <br>
+            <h3><strong>FANTASIA: </strong><%= fantasia %></h3>
+            <br>
+            <h3> <strong>CNPJ: </strong>  <%= cnpj %></h3>
+            <hr>
+            <h1 align="center">SITUAÇÃO</h1>
+            <hr>
+            <h3><strong>DATA DA SITUAÇÃO: </strong><%= data_situacao %></h3>
+            <br>
+            <h3><strong>SITUAÇÃO: </strong> <%= situacao %></h3>
+            <br>
+            <h3><strong>MOTIVO DA SITUAÇÃO: </strong><%= motivo %></h3>
+            <hr>
+            <a href="/" class="btn btn-primary">Voltar</a>
+        </div>
+        
+    </div>
+</div>
+<%- include ('partials/footer.ejs') %>

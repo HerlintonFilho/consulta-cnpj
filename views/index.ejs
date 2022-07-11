@@ -1,0 +1,43 @@
+<%- include ('partials/header.ejs') %>
+<%- include ('partials/navbar.ejs') %>
+<br>
+<% if(error){ %>
+    <div class="alert alert-danger" role="alert">
+        <%= error %>
+    </div>
+<% } %>
+
+<% if(unfound){ %>
+    <div class="alert alert-danger" role="alert">
+        <%= unfound %>
+    </div>
+<% } %>
+
+<% if(message){ %>
+    <div class="alert alert-danger" role="alert">
+        <%= message %>
+    </div>
+<% } %>
+
+<div class="container">
+    <div class="card">
+        <div class="card-header">
+            <h2>Consulta CNPJ - R Carvalho</h2>
+        </div>
+        <div class="card-body">
+            <h3>Consulte um CNPJ</h3>
+            <hr>
+            <form method="post" action="/api" name="form">
+                <div class="form-group">
+                    <label>Digite o CNPJ que deseja pesquisar</label>
+                    <input type="text" id="cnpjId" name="cnpj" class="form-control" onkeypress="$(this).mask('00.000.000/0000-00')">
+                </div>
+                <br>
+                <button type="submit" class="btn btn-success" >Pesquisar</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+<%- include ('partials/footer.ejs') %>
+
