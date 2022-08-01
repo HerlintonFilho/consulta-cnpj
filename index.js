@@ -59,6 +59,45 @@ app.post("/api", (req,res)=>{
     
 })
 
+app.post("/consulta", (req,res)=>{
+    var cnpj = req.body.cnpj_pedido
+    console.log(cnpj)
+    axios.post(`http://10.86.201.48:2222/v1/api/data`, {cnpj_pedido: cnpj}).then(resp =>{
+        var dados = resp.data
+        console.log(dados)
+        res.render("pedidos",{
+            pedido: dados['nropredvenda'],
+            seqpessoa: dados['seqpessoa'],
+            fantasia: dados['fantasia'],
+            cnpj: dados['cpf_cnpj'],
+            situacao: dados['status']
+        })
+    })
+})
+
+app.post("/separacao", (req,res)=>{
+    var pedido = req.body.separacao
+    console.log(pedido)
+    if(pedido == '' || pedido == undefined){
+        res.redirect("/")
+    }else if(pedido.length < 18){
+        res.redirect("/")
+    }else{
+        var pedidoformat = pedido.replaceAll('.','').replaceAll('/','').replaceAll('-','')
+        axios.get(`http://10.86.201.48:4040/separacao/${pedidoformat}`).then(result => {
+            if(result.data['return'][0]['STATUS'] == 'LIBERADO'){
+                res.redirect("/")
+            }else{
+                console.log( result.data['return'])
+                res.render("separacao",{
+                    status: result.data['return'],
+                })    
+            }
+        })
+    }
+   
+})
+
 app.use(function(req, res, next){
     res.status(401).send('Page not found. Try later again!')
 })

@@ -21,9 +21,9 @@
             <h3><strong>SITUAÇÃO:</strong> 
             <% if(situacao == 'ATIVA'){ %>
                 <b style="color: green;"><%= situacao %></b>
-            <% }else if(situacao == 'BAIXADA'){ %>
-                <b style="color: red;" > <strong><%= situacao %></strong></b>
             <% }else if(situacao == 'INAPTA'){ %>
+                <b style="color: red;" > <strong><%= situacao %></strong></b>
+            <% }else if(situacao == 'BAIXADA'){ %>
                 <b style="color: rgb(183, 183, 3);"> <strong><%= situacao %></strong></b>
             <% }else{ %>
                 <b> <strong><%= situacao %></strong> </b>

@@ -30,11 +30,32 @@
             <form method="post" action="/api" name="form">
                 <div class="form-group">
                     <label>Digite o CNPJ que deseja pesquisar</label>
-                    <input type="text" id="cnpjId" name="cnpj" class="form-control" onkeypress="$(this).mask('00.000.000/0000-00')">
+                    <input type="text" id="cnpjId" name="cnpj" class="form-control" onkeypress="$(this).mask('00.000.000/0000-00')" >
                 </div>
                 <br>
-                <button type="submit" class="btn btn-success" >Pesquisar</button>
+                <button type="submit" class="btn btn-success" >Pesquisar</button>                
             </form>
+
+            <!-- <form action="/consulta" method="post">
+                <hr>
+                <h3>Consultar pedidos pendentes</h3>
+                <br>
+                <div class="form-group">
+                    <input type="text" id="cnpjId2" name="cnpj_pedido" class="form-control" onkeypress="$(this).mask('00.000.000/0000-00')" placeholder="CNPJ do cliente" >
+                </div>
+                <br>
+                <button type="submit" class="btn btn-primary" >Consultar</button>
+            </form> -->
+
+            <form action="/separacao" method="post">
+                <hr>
+                <h3>Consultar clientes denegados</h3>
+                <br>
+                <div class="form-group">
+                    <input type="text" id="cnpjId2" name="separacao" class="form-control" onkeypress="$(this).mask('00.000.000/0000-00')" placeholder="CNPJ do cliente" >
+                </div>
+                <br>
+                <button type="submit" class="btn btn-primary" >Consultar</button>
         </div>
     </div>
 </div>

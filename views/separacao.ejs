@@ -1,0 +1,33 @@
+<%- include ('partials/header.ejs') %>
+<%- include ('partials/navbar.ejs') %>
+<br>
+
+<div class="container">
+    <br>
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>PEDIDO</th>
+                <th>CNPJ</th>
+                <th>FANTASIA</th>
+                <th>STATUS</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% status.forEach(status =>{ %>
+                <tr>
+                    <th><%= status.NROPEDVENDA %></th>
+                    <th><%= status.CPF_CNPJ %></th>
+                    <th><%= status.FANTASIA %></th>
+                    <% if(status.STATUS == 'ANÁLISE'){ %>
+                        <th style="color: red;"><%= status.STATUS %></th>
+                    <%}else{%>
+                        <th><%= status.STATUS %></th>
+                    <% } %>       
+                </tr>
+            <% }) %>
+        </tbody>
+    </table>
+    <hr>
+    <a href="/" class="btn btn-primary">Voltar</a>
+</div>
